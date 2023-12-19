@@ -20,7 +20,7 @@ Ensure you have the following installed:
 
 - [Docker](https://docs.docker.com/get-docker/)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-- Access to a Kubernetes cluster
+- Access to a Kubernetes cluster- Enable Kubernetes From Dokcer Desktop setting
 
 ##  <div align="center">Getting Started</div>
   
