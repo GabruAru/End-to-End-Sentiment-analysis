@@ -27,8 +27,8 @@ Ensure you have the following installed:
 ### Clone the Repository
 
 ```bash
-git clone <repository_url>
-cd <repository_directory>
+git clone https://github.com/GabruAru/Sentiment-analysis.git
+cd Sentiment-analysis
 ```
 
 ### Deploy with Kubernetes
