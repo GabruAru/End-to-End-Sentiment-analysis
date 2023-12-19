@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-service
+spec:
+  selector:
+    io.kompose.service: app
+  ports:
+    - protocol: TCP
+      port: 8000  # Use any available port on your host machine
+      targetPort: 8000  # The port your FastAPI app is running on within the pod
+  type: NodePort

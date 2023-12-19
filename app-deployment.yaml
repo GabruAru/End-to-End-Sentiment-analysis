@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe convert -f docker-compose.yml
+    kompose.version: 1.31.2 (a92241f79)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: app
+  name: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: app
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe convert -f docker-compose.yml
+        kompose.version: 1.31.2 (a92241f79)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/senitment-analysis-project-default: "true"
+        io.kompose.service: app
+    spec:
+      containers:
+        - args:
+            - uvicorn
+            - main:app
+            - --host=0.0.0.0
+            - --port=8000
+          env:
+            - name: DATABASE_URL
+              value: mysql+mysqlconnector://root:admin@10.1.0.55:3306/sentiment
+
+            - name: MODEL_FILE_PATH
+              value: /app/ai_model/saved_model/roberta_sentiment
+          image: aryan381/sentiment-analysis-app
+          name: app
+          resources: {}
+      restartPolicy: Always
+status: {}
