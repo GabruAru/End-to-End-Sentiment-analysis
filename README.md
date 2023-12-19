@@ -13,6 +13,7 @@ This project is a Sentiment Analysis API built using  [FastAPI](https://fastapi.
   - [Request](#request)
   - [Response](#response)
 - [Logging](#logging)
+- [Docker Usage](#docker-usage)
 
 ##  <div align="center">Prerequisites</div>
 
@@ -113,6 +114,37 @@ The API will respond with a JSON object containing the predicted sentiment:
 ##  <div align="center">Logging</div> 
 
 The application logs each sentiment analysis request and response to a MySQL database. You can access the logs using the /logs/ endpoint.
+
+##  <div align="center">Docker Usage</div>
+
+### Build with Docker 
+
+Use this application and deploy it yourself on local machine, save you model in saved_model directory 
+
+```bash
+docker-compose build
+```
+
+### Deploy locally with 
+
+```bash
+docker-compose up
+```
+
+Use the API on localhost:8000
+
+### CleanUp
+
+```bash
+docker-compose down
+```
+
+### Pull the build image from Docker Hub
+
+```bash
+docker pull aryan381/senitment-analysis-app:latest
+docker pull aryan381/sentiment-analysis-db:lastest
+```
 
 
 
