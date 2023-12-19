@@ -13,13 +13,8 @@ This project is a Sentiment Analysis API built using  [FastAPI](https://fastapi.
   - [Request](#request)
   - [Response](#response)
 - [Logging](#logging)
-- [Deployment](#deployment)
-  - [Docker](#docker)
-  - [Kubernetes](#kubernetes)
-- [Contributing](#contributing)
-- [License](#license)
 
-## Prerequisites
+##  <div align="center">Prerequisites</div>
 
 Ensure you have the following installed:
 
@@ -27,16 +22,19 @@ Ensure you have the following installed:
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 - Access to a Kubernetes cluster
 
-## Getting Started
-
+##  <div align="center">Getting Started</div>
+  
 ### Clone the Repository
 
 ```bash
 git clone <repository_url>
 cd <repository_directory>
 ```
+
 ### Deploy with Kubernetes
 
+
+  
 #### 1. Deploy Database
 ```bash
 kubectl apply -f db-data-persistentvolumeclaim.yaml
@@ -73,11 +71,57 @@ kubectl apply -f app-deployment.yaml
 kubectl apply -f app-service.yaml        
 ```
 
-### API Usage 
+
+
+##  <div align="center">API Usage</div>
 
 ```bash
 kubectl get services
 ```
+
+![image](https://github.com/GabruAru/Sentiment-analysis/assets/84130891/e22415fc-024a-4b7d-8fbf-53f8368b1766)
+
+### Endpoint
+
+The Sentiment Analysis FastAPI Swagger UI is available at:
+
+```bash
+http://localhost:<node_port>/docs
+```
+Replace <node_port> with the actual node port assigned to the app-service in your Kubernetes cluster.
+
+### Request 
+
+Send a POST request to the /predict endpoint with a JSON payload:
+
+``` bash
+{
+  "text": "Your text for sentiment analysis."
+}
+```
+
+### Response 
+
+The API will respond with a JSON object containing the predicted sentiment:
+
+``` bash
+{
+  "sentiment_class": "positive"
+}
+```
+
+##  <div align="center">Logging</div> 
+
+The application logs each sentiment analysis request and response to a MySQL database. You can access the logs using the /logs/ endpoint.
+
+
+
+
+
+
+
+
+
 
 
 
